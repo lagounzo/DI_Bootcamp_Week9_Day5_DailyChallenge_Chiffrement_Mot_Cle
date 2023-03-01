@@ -1,0 +1,97 @@
+day5 week 9
+
+Instructions
+Le chiffrement par mot-clé est une forme de substitution monoalphabétique. Un mot-clé est utilisé comme clé et détermine les correspondances de lettres de l'alphabet chiffré avec l'alphabet simple.
+
+Les répétitions de lettres du mot sont supprimées, puis l'alphabet chiffré est généré avec le mot-clé correspondant à A, B, C, etc. jusqu'à ce que le mot-clé soit épuisé, après quoi le reste des lettres du texte chiffré sont utilisées dans l'ordre alphabétique, à l'exclusion de celles déjà utilisé dans la clé.
+
+
+
+Chiffrement:
+La première ligne de saisie contient le mot-clé que vous souhaitez saisir. La deuxième ligne d'entrée contient la chaîne que vous devez chiffrer.
+
+Plaintext: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+Encrypted: K R Y P T O S A B C D E F G H I J L M N Q U V W X Z
+
+
+Avec KRYPTOS comme mot-clé, tous les A deviennent des K, tous les B deviennent des R, et ainsi de suite. Crypter le message « savoir, c'est pouvoir » à l'aide du mot-clé « Kryptos » :
+
+Encrypting the message: Knowledge is Power
+Encoded message: IlmWjbaEb GQ NmWbp
+
+
+Exemples:
+
+Input :
+Keyword : secret
+Message : Zombie Here
+
+Output :
+Ciphered String : ZLJEFT DTOT
+
+
+Prenons le premier exemple, nous y avons utilisé le mot-clé "secret".
+
+Plain Text : A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+
+Lorsque le mot-clé "secret" est utilisé, le nouveau texte de cryptage devient :
+
+Encrypting : S E C R T A B D F G H I J K L M N O P Q U V W X Y Z
+
+
+Cela signifie que 'A' signifie 'S', 'B' signifie 'E' et 'C' signifie 'C' et ainsi de suite.
+Permet d'encoder le message donné "Zombie Here"
+ZOMBIE HERE devient ZLJEFT DTOT
+
+Input :
+Keyword : Star War
+Message : Attack at dawn
+Output :
+Ciphered String : SPPSAG SP RSVJ
+
+
+Quelques points à noter dans cette méthode :
+
+Tous les messages sont codés en majuscules.
+Les espaces blancs, les caractères spéciaux et les chiffres ne prennent pas en compte les mots-clés, bien que vous puissiez les y mettre.
+Lors du cryptage du message, les espaces, les caractères spéciaux et les chiffres ne sont pas affectés.
+
+
+Sortir
+Keyword : Computer
+Message before Ciphering : GeeksforGeeks
+Ciphered Text : EUUDNTILEUUDN
+
+
+Décryptage :
+Pour décoder le message, vous vérifiez la position du message donné en cryptant le texte avec le texte brut.
+
+Plaintext: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+Encrypted: K R Y P T O S A B C D E F G H I J L M N Q U V W X Z
+
+
+Message: PTYBIATLEP
+Deciphered Text: DECIPHERED
+
+
+Maintenant, comment générons-nous la chaîne déchiffrée ? Nous recherchons 'P' dans le texte crypté et comparons sa position avec une lettre en texte brut et générons cette lettre. Ainsi, 'P' devient 'D', 'T' devient 'E', 'Y' devient 'C', et ainsi de suite.
+
+Exemples:
+
+Input :
+Keyword : secret
+Message : zljeft dtOT
+Output :
+Deciphered String : ZOMBIE HERE
+
+
+Input :
+Keyword : joker0O7hack123
+Message : QjTijl
+Output :
+Deciphered String : BATMAN
+
+
+
+Écrire un programme Java pour décoder la chaîne à l'aide d'un chiffrement classique
